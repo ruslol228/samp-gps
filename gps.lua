@@ -992,7 +992,12 @@ function imgui.OnDrawFrame()
                 f = io.open(getWorkingDirectory() .. "\\jumper\\gui\\gui.json", "w+")
                 f:write("[" .. text_radar_size .. ", " .. text_pos_x ..  ", " .. text_pos_y .."]")
                 f:close()
-
+                --[[
+                lua_thread.create(function ()
+                    wait(1000)
+                    thisScript():reload()
+                end)
+                ]]
             end
 
 
